@@ -35,9 +35,9 @@ def get_dll_exphash(dll: bytes) -> dict | None:
     logging.debug(f"LIEF found exports {export_str}")
 
     hashes = {
-        "export_md5": md5(export_str).hexdigest(),  # nosec B324
+        "export_md5": md5(export_str).hexdigest(),  # noqa: S324
         "export_sha256": sha256(export_str).hexdigest(),
-        "export_md5_sorted": md5(export_str_sorted).hexdigest(),  # nosec B324
+        "export_md5_sorted": md5(export_str_sorted).hexdigest(),  # noqa: S324
         "export_sha256_sorted": sha256(export_str_sorted).hexdigest(),
     }
 
@@ -98,9 +98,9 @@ def get_elf_hashes(elf: bytes) -> dict | None:
         export_str_sorted = ",".join(sorted(exports)).encode()
         hashes.update(
             {
-                "export_md5": md5(export_str).hexdigest(),  # nosec B324
+                "export_md5": md5(export_str).hexdigest(),  # noqa: S324
                 "export_sha256": sha256(export_str).hexdigest(),
-                "export_md5_sorted": md5(export_str_sorted).hexdigest(),  # nosec B324
+                "export_md5_sorted": md5(export_str_sorted).hexdigest(),  # noqa: S324
                 "export_sha256_sorted": sha256(export_str_sorted).hexdigest(),
             }
         )
@@ -113,9 +113,9 @@ def get_elf_hashes(elf: bytes) -> dict | None:
         import_str_sorted = ",".join(sorted(imports)).encode()
         hashes.update(
             {
-                "import_md5": md5(import_str).hexdigest(),  # nosec B324
+                "import_md5": md5(import_str).hexdigest(),  # noqa: S324
                 "import_sha256": sha256(import_str).hexdigest(),
-                "import_md5_sorted": md5(import_str_sorted).hexdigest(),  # nosec B324
+                "import_md5_sorted": md5(import_str_sorted).hexdigest(),  # noqa: S324
                 "import_sha256_sorted": sha256(import_str_sorted).hexdigest(),
             }
         )
