@@ -35,8 +35,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="a7d81c1f20df1b0e0dcfcf50c1c3dae8556ee8335e5f56d4e365367a41a03475",
+                        sha256="a7d81c1f20df1b0e0dcfcf50c1c3dae8556ee8335e5f56d4e365367a41a03475",
                         features={
                             "pe_export_hash": [FV("766756d270d8eb254563c7aa22f7ef47")],
                             "pe_export_hash_sorted": [FV("766756d270d8eb254563c7aa22f7ef47")],
@@ -59,8 +58,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="12bcb9015416e09c3a3ff3881a2b0a84ef6e5db5613629f9b80454f5fa0e7d24",
+                        sha256="12bcb9015416e09c3a3ff3881a2b0a84ef6e5db5613629f9b80454f5fa0e7d24",
                         features={
                             "pe_export_hash": [FV("e340d42e9eb6bec4726a07c292a16439")],
                             "pe_export_hash_sorted": [FV("641e0daa9d5d8996a036df8e1aae5412")],
@@ -83,8 +81,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="8f31ac74fc288a7cb8211e49c2fce3dcc0e7a5ef38c64d881b87438ae1260fba",
+                        sha256="8f31ac74fc288a7cb8211e49c2fce3dcc0e7a5ef38c64d881b87438ae1260fba",
                         features={
                             "pe_export_hash": [FV("9121bf2bf97401eac76aa078a83fb833")],
                             "pe_export_hash_sorted": [FV("e27c561dfb001262dce153d5fb44f1f4")],
@@ -109,8 +106,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="f472b585de1699e2cb35bfdc9ba760e3d6c2669e807e1a515cb2d489706e59ad",
+                        sha256="f472b585de1699e2cb35bfdc9ba760e3d6c2669e807e1a515cb2d489706e59ad",
                         features={
                             "pe_export_hash": [FV("7e6f3c2e42b834e2d2f182193869ed13")],
                             "pe_export_hash_sorted": [FV("ca54aae91580add6cdf37169ffc6e3e5")],
@@ -153,8 +149,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="33cf70e2fcb4304a6786bd7d0de529a63c2c036675d729cb397bfc501bb9c59c",
+                        sha256="33cf70e2fcb4304a6786bd7d0de529a63c2c036675d729cb397bfc501bb9c59c",
                         features={
                             "pe_export_hash": [FV("0286a1014a50dd9ae4d06ecc63073f5f")],
                             "pe_export_hash_sorted": [FV("0286a1014a50dd9ae4d06ecc63073f5f")],
@@ -274,8 +269,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="3ce8cc77f583df21526f579496545c26af08c9f586abc9327ce8e552ca382b00",
+                        sha256="3ce8cc77f583df21526f579496545c26af08c9f586abc9327ce8e552ca382b00",
                         features={
                             "elf_export_hash": [FV("ebbc83bc7ce135636cdb820232daf2e3")],
                             "elf_export_hash_sorted": [FV("f5fdbcdc7f39ffb8785ed5e86baff693")],
@@ -299,8 +293,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="a8902e095aad2a90fb05f49a55b34a06e211a1722132e2264f2368e93ef1372e",
+                        sha256="a8902e095aad2a90fb05f49a55b34a06e211a1722132e2264f2368e93ef1372e",
                         features={
                             "elf_export_hash": [FV("32cab333f0c2f9bde51c5b4debbf4a24")],
                             "elf_export_hash_sorted": [FV("a11fece009dbbadc99a8ee307e7d5cd6")],
@@ -324,8 +317,7 @@ class TestExecute(test_template.TestPlugin):
                 state=State(State.Label.COMPLETED),
                 events=[
                     Event(
-                        entity_type="binary",
-                        entity_id="9f5f000d41641ff940146b18c20ad157ee26ad856a05c5aaa4254cdec8db65da",
+                        sha256="9f5f000d41641ff940146b18c20ad157ee26ad856a05c5aaa4254cdec8db65da",
                         features={
                             "elf_export_hash": [FV("2b0f268cfd3e0a15824342a0d985e6aa")],
                             "elf_export_hash_sorted": [FV("bfcf197d0d4ea387f9ea41b68cac792e")],
