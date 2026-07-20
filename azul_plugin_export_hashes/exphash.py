@@ -19,11 +19,11 @@ def get_dll_exphash(dll: bytes) -> dict | None:
     if not lief_pe or isinstance(lief_pe, lief.lief_errors):
         return None
 
-    logging.info(f"lief thinks there are {len(lief_pe.exported_functions)} exports")
+    logging.info(f"lief thinks there are {len(lief_pe.exported_functions)} exports")  # ty: ignore[unresolved-attribute] ty can't find exported_functions
 
     # we fail here if non-ascii export name, which may or may not be a PE thing
     # lief can mix str and bytes here, because it hates us
-    lief_exports = [_bytesify(x.name.lower()) for x in lief_pe.exported_functions]
+    lief_exports = [_bytesify(x.name.lower()) for x in lief_pe.exported_functions]  # ty: ignore[unresolved-attribute]
     logging.info(f"export name types: {[type(x) for x in lief_exports]}")
 
     # lief found no exports, don't calculate export hashes
@@ -76,18 +76,20 @@ def get_elf_hashes(elf: bytes) -> dict | None:
         so = False
         logging.debug("ELF is not a shared object, ignoring exports")
 
-    exports = []
-    imports = []
+    exports: list[str] = list()
+    imports: list[str] = list()
 
-    for function in an_elf.exported_functions:
+    for function in an_elf.exported_functions:  # ty: ignore[unresolved-attribute]
         # LIEF is apparently walking both .symtab and .dynsym, then doing some filtering?
-        if function.name not in exports:
-            exports.append(function.name)
+        name = function.name if isinstance(function.name, str) else function.name.decode()
+        if name not in exports:
+            exports.append(name)
 
-    for function in an_elf.imported_functions:
+    for function in an_elf.imported_functions:  # ty: ignore[unresolved-attribute]
         # not sure how best to handle mangled function names
-        if function.name not in imports:
-            imports.append(function.name)
+        name = function.name if isinstance(function.name, str) else function.name.decode()
+        if name not in imports:
+            imports.append(name)
 
     hashes = {}
 
@@ -124,9 +126,9 @@ def get_elf_hashes(elf: bytes) -> dict | None:
     return hashes
 
 
-def _bytesify(some_export):
+def _bytesify(some_export: str | bytes) -> bytes:
     """Function used to map mixed str and bytes list to all bytes."""
-    if type(some_export) is str:
+    if isinstance(some_export, str):
         return some_export.encode()
     else:
         return some_export
