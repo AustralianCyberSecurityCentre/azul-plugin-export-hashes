@@ -19,11 +19,11 @@ def get_dll_exphash(dll: bytes) -> dict | None:
     if not lief_pe or isinstance(lief_pe, lief.lief_errors):
         return None
 
-    logging.info(f"lief thinks there are {len(lief_pe.exported_functions)} exports")  # ty: ignore[unresolved-attribute] ty can't find exported_functions
+    logging.info(f"lief thinks there are {len(lief_pe.exported_functions)} exports")  # ty: ignore[missing-union-attribute] ty can't find exported_functions
 
     # we fail here if non-ascii export name, which may or may not be a PE thing
     # lief can mix str and bytes here, because it hates us
-    lief_exports = [_bytesify(x.name.lower()) for x in lief_pe.exported_functions]  # ty: ignore[unresolved-attribute]
+    lief_exports = [_bytesify(x.name.lower()) for x in lief_pe.exported_functions]  # ty: ignore[missing-union-attribute]
     logging.info(f"export name types: {[type(x) for x in lief_exports]}")
 
     # lief found no exports, don't calculate export hashes
@@ -79,13 +79,13 @@ def get_elf_hashes(elf: bytes) -> dict | None:
     exports: list[str] = list()
     imports: list[str] = list()
 
-    for function in an_elf.exported_functions:  # ty: ignore[unresolved-attribute]
+    for function in an_elf.exported_functions:  # ty: ignore[missing-union-attribute]
         # LIEF is apparently walking both .symtab and .dynsym, then doing some filtering?
         name = function.name if isinstance(function.name, str) else function.name.decode()
         if name not in exports:
             exports.append(name)
 
-    for function in an_elf.imported_functions:  # ty: ignore[unresolved-attribute]
+    for function in an_elf.imported_functions:  # ty: ignore[missing-union-attribute]
         # not sure how best to handle mangled function names
         name = function.name if isinstance(function.name, str) else function.name.decode()
         if name not in imports:
